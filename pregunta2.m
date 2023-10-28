@@ -11,26 +11,27 @@ function pregunta2
     iterMax = 1000; % Número de iteraciones máximas para la serie
     x0 = [0;0;0;0]; % Vector inicial de prueba
 
-    % Soluciones usando los diferentes métodos
-    fprintf("Solución utilizando el metodo PNHSS: \n");
-    [x_1, Error_1, Iter_1] = PNHSS(W, T, p, q, x0, tol, iterMax)
-    fprintf('\n');
-
-    fprintf("Solución utilizando el metodo PS*HSS: \n");
-    [x_2, Error_2, Iter_2] = PS_HSS(W, T, p, q, x0, tol, iterMax)
-endfunction
-        
-function [xk, err, iter] = PNHSS (W, T, p, q, x0, tol, iterMax)
     % Definicion de constantes
     w = 1; 
     a = 1; 
     n = length(W);
 
+    % Soluciones usando los diferentes métodos
+    fprintf("Solución utilizando el metodo PNHSS: \n");
+    [x_1, Error_1, Iter_1] = PNHSS(W, T, p, q, x0, w, a, n, tol, iterMax)
+    fprintf('\n');
+
+    fprintf("Solución utilizando el metodo PS*HSS: \n");
+    [x_2, Error_2, Iter_2] = PS_HSS(W, T, p, q, x0, w, tol, iterMax)
+endfunction
+        
+function [xk, err, iter] = PNHSS (W, T, p, q, x0, w, a, n, tol, iterMax)
+
     % Establecer valor inicial y matrices A y b
     xk = x0; 
     A = W + i * T;
-    
     b = p + i * q; 
+    I = eye(n);
 
     % Iniciar el método iterativo
     for iter = 1 : iterMax
@@ -40,8 +41,8 @@ function [xk, err, iter] = PNHSS (W, T, p, q, x0, tol, iterMax)
         x_aux = mldivide(C, D);
 
         % Cálculo de xk1 usando el valor intermedio anterior
-        X = a * eye(n) + w * W + T;
-        Z = (a * eye(n) - i * (w * T - W)) * x_aux + (w-i) * b;
+        X = a * I + w * W + T;
+        Z = (a * I - i * (w * T - W)) * x_aux + (w-i) * b;
         xk1 = mldivide(X, Z);
 
         % Verificar condición de parada
@@ -53,9 +54,7 @@ function [xk, err, iter] = PNHSS (W, T, p, q, x0, tol, iterMax)
     endfor
 endfunction
 
-function [xk, err, iter] = PS_HSS (W, T, p, q, x0, tol, iterMax)
-    % Definición de constante
-    w = 1;
+function [xk, err, iter] = PS_HSS (W, T, p, q, x0, w, tol, iterMax)
     
     % Establecer valor inicial y matrices A y b
     xk = x0;
@@ -68,9 +67,9 @@ function [xk, err, iter] = PS_HSS (W, T, p, q, x0, tol, iterMax)
         C = w * W + T;
         D = -i * (w * T - W) * xk + (w - i) * b;
         xk1 = mldivide(C, D);
-
+    
+        % Verificar condición de parada
         xk = xk1;
-        
         err = norm(A * xk - b);
         if err <= tol
             break;
