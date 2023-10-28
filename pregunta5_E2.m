@@ -1,12 +1,12 @@
-function pregunta5_E1
+function pregunta5_E2
     % Constantes Iniciales
     tol = 10 ^ -6; 
     iterMax = 5000;
 
     m = 16; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
-    [W,T] = matrizWT(m); 
-    [p,q] = matrizB(m);
+    [W,T] = matrizWT(m) 
+    [p,q] = matrizB(m)
 
     % Colocar aquí los métodos
     % #1
@@ -62,10 +62,12 @@ endfunction
 function [W,T] = matrizWT (m)
     I = eye(m ^ 2); % Definir la matriz identidad
     h = 1 / (m + 1); % Definir la constante h
+    w = pi/4;
+    B = 0.02;
 
     K = matrizK(m);
-    W = K + I * (3 - sqrt(3)) / h;
-    T = K + I * (3 + sqrt(3)) / h;
+    W = K - w ^ 2 * I;
+    T = B * K + 10 * w * I;
 endfunction
 
 function A = tridiag(m, b, a ,c)
@@ -85,7 +87,7 @@ function [p,q] = matrizB (m)
     h = 1 / (m + 1); % Definir la constante h
     B = ones(n,1); % Crear una matriz momentánea
     for j = 1 : n
-        B(j,1) = (1 - i) * j / (h * (j + 1) ^ 2); % Calcular cada espacio de la matriz B
+        B(j,1) = (1 + i) * j / (h ^ 2 * (j + 1) ^ 2); % Calcular cada espacio de la matriz B
     endfor
     p = real(B); % Obtener la matriz de la parte real
     q = imag(B); % Obtener la matriz de la parte imaginaria
