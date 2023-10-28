@@ -1,4 +1,7 @@
-function R = pregunta1()
+function R = pregunta1(W, T, p, q, x, iterMax, tol)
+
+
+  m = length(W);
 
   x = zeros(4,1);
   I = eye(4);
@@ -24,11 +27,9 @@ function R = pregunta1()
 
   b = p + i*q;
 
-  for c=1 : 1000
+  for j=1 : 1000
     z = ((I+W)\I) * (I - S) * x + ((I+W)\I)*b;
     x = ((I+S)\I) * ((I-W)*z) + ((I+S)\I) * b;
   endfor
-
-  x
 
   endfunction
