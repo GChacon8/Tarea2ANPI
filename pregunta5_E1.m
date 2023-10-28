@@ -1,7 +1,71 @@
 function pregunta5_E1
-    m = 4; % Colocar aquí el tamaño de matriz deseado
-    K = matrizK(2); 
-    [p,q] = matrizB(2);
+    % Constantes Iniciales
+    tol = 10 ^ -6; 
+    iterMax = 5000;
+
+    m = 16; % Colocar aquí el tamaño de matriz deseado
+    x = zeros(m ^ 2, 1); % Generar valor inicial
+    [W,T] = matrizWT(m); 
+    [p,q] = matrizB(m);
+
+    % Colocar aquí los métodos
+    % #1
+    % #2
+    % #3
+    % #4
+    
+    m = 32; % Colocar aquí el tamaño de matriz deseado
+    x = zeros(m ^ 2, 1); % Generar valor inicial
+    [W,T] = matrizWT(m); 
+    [p,q] = matrizB(m);
+
+    % Colocar aquí los métodos
+    % #1
+    % #2
+    % #3
+    % #4
+
+    m = 64; % Colocar aquí el tamaño de matriz deseado
+    x = zeros(m ^ 2, 1); % Generar valor inicial
+    [W,T] = matrizWT(m); 
+    [p,q] = matrizB(m);
+
+    % Colocar aquí los métodos
+    % #1
+    % #2
+    % #3
+    % #4
+
+    m = 128; % Colocar aquí el tamaño de matriz deseado
+    x = zeros(m ^ 2, 1); % Generar valor inicial
+    [W,T] = matrizWT(m); 
+    [p,q] = matrizB(m);
+
+    % Colocar aquí los métodos
+    % #1
+    % #2
+    % #3
+    % #4
+
+    m = 256; % Colocar aquí el tamaño de matriz deseado
+    x = zeros(m ^ 2, 1); % Generar valor inicial
+    [W,T] = matrizWT(m); 
+    [p,q] = matrizB(m);
+
+    % Colocar aquí los métodos
+    % #1
+    % #2
+    % #3
+    % #4
+endfunction
+
+function [W,T] = matrizWT (m)
+    I = eye(m ^ 2); % Definir la matriz identidad
+    h = 1 / (m + 1); % Definir la constante h
+
+    K = matrizK(m);
+    W = K + I * (3 - sqrt(3)) / h;
+    T = K + I * (3 + sqrt(3)) / h;
 endfunction
 
 function A = tridiag(m, b, a ,c)
