@@ -1,33 +1,28 @@
-function pregunta2
-    clc; clear;
-    % Definición de la Matriz para probar los códigos
-    W = [12 -2 6 -2; -2 5 2 1; 6 2 9 -2; -2 1 -2 1];
-    T = [6 2 7 2; 2 7 1 1; 7 1 9 0; 2 1 0 10];
-    p = [9; -7; -5; 7];
-    q = [12; -4; 17; -2];
+% Si quiere probar el método usando la matriz de ejemplo del ejercicio 1, copiar la siguiente linea de código en la consola
+% pregunta2([12 -2 6 -2; -2 5 2 1; 6 2 9 -2; -2 1 -2 1], [6 2 7 2; 2 7 1 1; 7 1 9 0; 2 1 0 10], [9; -7; -5; 7], [12; -4; 17; -2], [0;0;0;0], 1, 1, 10 ^ -12, 1000);
 
-    % Definición de otros parametros importantes
-    tol = 10 ^ -12; % Tolerancia para la condicion de parada
-    iterMax = 1000; % Número de iteraciones máximas para la serie
-    x0 = [0;0;0;0]; % Vector inicial de prueba
-
-    % Definicion de constantes
-    w = 1; 
-    a = 1; 
-    n = length(W);
-
+function pregunta2 (W, T, p, q, x0, w, a, tol, iterMax)
     % Soluciones usando los diferentes métodos
-    fprintf("Solución utilizando el metodo PNHSS: \n");
-    [x_1, Error_1, Iter_1] = PNHSS(W, T, p, q, x0, w, a, n, tol, iterMax)
-    fprintf('\n');
+    printf("    Método #2 = PNHSS\n");
+    [Error, TiempoEjecucion, Iteraciones] = PNHSS(W, T, p, q, x0, w, a, tol, iterMax);
+    printf("        Error = %d\n", Error);
+    printf("        Tiempo de Ejecucion = %d", TiempoEjecucion) 
+    printf(" segundos\n");
+    printf("        Iteraciones = %d\n", Iteraciones);
 
-    fprintf("Solución utilizando el metodo PS*HSS: \n");
-    [x_2, Error_2, Iter_2] = PS_HSS(W, T, p, q, x0, w, tol, iterMax)
+    printf("    Método #3 = PS*HSS\n");
+    [Error, TiempoEjecucion, Iteraciones] = PS_HSS(W, T, p, q, x0, w, tol, iterMax);
+    printf("        Error = %d\n", Error);
+    printf("        Tiempo de Ejecucion = %d", TiempoEjecucion) 
+    printf(" segundos\n");
+    printf("        Iteraciones = %d\n", Iteraciones);
+    
 endfunction
         
-function [xk, err, iter] = PNHSS (W, T, p, q, x0, w, a, n, tol, iterMax)
-
+function [err, tiempo, iter] = PNHSS (W, T, p, q, x0, w, a, tol, iterMax)
+    inicio = time();
     % Establecer valor inicial y matrices A y b
+    n = length(W);
     xk = x0; 
     A = W + i * T;
     b = p + i * q; 
@@ -52,10 +47,12 @@ function [xk, err, iter] = PNHSS (W, T, p, q, x0, w, a, n, tol, iterMax)
             break;
         endif
     endfor
+    final = time();
+    tiempo = final - inicio;
 endfunction
 
-function [xk, err, iter] = PS_HSS (W, T, p, q, x0, w, tol, iterMax)
-    
+function [err, tiempo, iter] = PS_HSS (W, T, p, q, x0, w, tol, iterMax)
+    inicio = time();
     % Establecer valor inicial y matrices A y b
     xk = x0;
     A = W + i * T;
@@ -75,6 +72,8 @@ function [xk, err, iter] = PS_HSS (W, T, p, q, x0, w, tol, iterMax)
             break;
         endif
     endfor
+    final = time();
+    tiempo = final - inicio;
 endfunction
 
 

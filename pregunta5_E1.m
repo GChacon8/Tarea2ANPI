@@ -8,9 +8,10 @@ function pregunta5_E1
     [W,T] = matrizWT(m); 
     [p,q] = matrizB(m);
 
+    printf("Caso #1: m=16\n");
     % Colocar aquí los métodos
     % #1
-    % #2
+    pregunta2 (W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     % #4
     
@@ -19,9 +20,10 @@ function pregunta5_E1
     [W,T] = matrizWT(m); 
     [p,q] = matrizB(m);
 
+    printf("Caso #2: m=32\n");
     % Colocar aquí los métodos
     % #1
-    % #2
+    pregunta2 (W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     % #4
 
@@ -30,9 +32,10 @@ function pregunta5_E1
     [W,T] = matrizWT(m); 
     [p,q] = matrizB(m);
 
+    printf("Caso #3: m=64\n");
     % Colocar aquí los métodos
     % #1
-    % #2
+    pregunta2 (W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     % #4
 
@@ -41,9 +44,10 @@ function pregunta5_E1
     [W,T] = matrizWT(m); 
     [p,q] = matrizB(m);
 
+    printf("Caso #4: m=128\n");
     % Colocar aquí los métodos
     % #1
-    % #2
+    pregunta2(W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     % #4
 
@@ -52,9 +56,10 @@ function pregunta5_E1
     [W,T] = matrizWT(m); 
     [p,q] = matrizB(m);
 
+    printf("Caso #5: m=256\n");
     % Colocar aquí los métodos
     % #1
-    % #2
+    pregunta2(W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     % #4
 endfunction
