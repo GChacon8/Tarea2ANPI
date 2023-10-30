@@ -15,33 +15,32 @@ function pregunta3(W, T, p, q, iterMax, tol)
   [x, error, iter, tiempo] = MHSS_method(W, T, p, q, iterMax, tol);
   %disp("resultado");
   %disp(x); si quiere ver el resultado de x entonces descomente esta linea de codigo
-  disp("El error es: ");
-  disp(error);
-  disp("El tiempo de ejecución en segundos es: ");
-  disp(tiempo);
+  printf("    Método #2 = MHSS\n");
 
-  disp("El número de iteraciones es: ");
-  disp(iter);
+    printf("        Error = %d\n", error);
+    printf("        Tiempo de Ejecucion = %d", tiempo)
+    printf(" segundos\n");
+    printf("        Iteraciones = %d\n", iter);
 end
 
-% Call pregunta3 with the defined matrices and parameters
+
 
 
 % Function that solves the problem using the MHSS method
 function [x, error, iter, tiempo] = MHSS_method(W, T, p, q, iterMax, tol)
-    tic; % Start the timer
-    n = length(W); % Size of the matrix
-    Im = eye(n); % Identity matrix
+    tic; % Inicio del timer
+    n = length(W); % tamño de la matriz
+    Im = eye(n); % matriz identidad
 
-    % Calculate λmin and λmax
+    % Calcular λmin and λmax
     eigenvalues = eig(W);
     lambda_min = min(eigenvalues);
     lambda_max = max(eigenvalues);
 
-    % Calculate the optimal value of alpha_star
+    % Calcular el valor optimao de alpha_star
     alpha_star = sqrt(lambda_max * lambda_min);
 
-    x = zeros(size(p)); % Initialize x with zeros
+    x = zeros(size(p)); % Inicializar con ceros a x
     iter = 1;
 
     % Iterations
@@ -49,18 +48,18 @@ function [x, error, iter, tiempo] = MHSS_method(W, T, p, q, iterMax, tol)
         M_alpha = mldivide(alpha_star * Im + T, Im) * (alpha_star * Im + 1i * W) * mldivide(alpha_star * Im + W, Im) * (alpha_star * Im - 1i * T);
         N_alpha = (1 - 1i) * alpha_star * mldivide(alpha_star * Im + T, Im) * mldivide(alpha_star * Im + W, Im);
 
-        x = M_alpha * x + N_alpha * (p + 1i * q);
+        x = M_alpha * x + N_alpha * (p + 1i * q); %calculo de x
 
-        error = norm((W + 1i * T) * x - (p + 1i * q));
+        error = norm((W + 1i * T) * x - (p + 1i * q)); %calculo del error
 
         % Stopping condition
         if error < tol
             iter = k;
-            tiempo = toc; % Stop the timer
+            tiempo = toc; % parar el timer
             return;
         end
     end
-    tiempo = toc; % Stop the timer
+
 end
 
 %pregunta3(W, T, p, q, iterMax, tol);
