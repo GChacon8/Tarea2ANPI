@@ -13,6 +13,7 @@ function pregunta5_E2
     % #1
     pregunta2 (W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
+    pregunta3(W, T, p, q, iterMax, tol)
     % #4
     
     m = 32; % Colocar aquí el tamaño de matriz deseado
@@ -25,6 +26,7 @@ function pregunta5_E2
     % #1
     pregunta2 (W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
+    pregunta3(W, T, p, q, iterMax, tol)
     % #4
 
     m = 64; % Colocar aquí el tamaño de matriz deseado
@@ -37,6 +39,7 @@ function pregunta5_E2
     % #1
     pregunta2 (W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
+    pregunta3(W, T, p, q, iterMax, tol)
     % #4
 
     m = 128; % Colocar aquí el tamaño de matriz deseado
@@ -49,6 +52,7 @@ function pregunta5_E2
     % #1
     pregunta2(W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
+    pregunta3(W, T, p, q, iterMax, tol)
     % #4
 
     m = 256; % Colocar aquí el tamaño de matriz deseado
@@ -61,6 +65,7 @@ function pregunta5_E2
     % #1
     pregunta2(W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
+    pregunta3(W, T, p, q, iterMax, tol)
     % #4
 endfunction
 
