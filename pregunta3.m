@@ -15,7 +15,7 @@ function pregunta3(W, T, p, q, iterMax, tol)
   [x, error, iter, tiempo] = MHSS_method(W, T, p, q, iterMax, tol);
   %disp("resultado");
   %disp(x); si quiere ver el resultado de x entonces descomente esta linea de codigo
-  printf("    Método #2 = MHSS\n");
+  printf("    Método #4 = MHSS\n");
 
     printf("        Error = %d\n", error);
     printf("        Tiempo de Ejecucion = %d", tiempo)

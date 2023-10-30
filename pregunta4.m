@@ -1,13 +1,11 @@
 % Esta funcion se utiliza como función principal para hacer una prueba de los resultados de las funciones posteriores.
-function pregunta4()
+function pregunta4(W, T, p, q)
 
-  clc; clear;
+  %W=[12 -2 6 -2;-2 5 2 1;6 2 9 -2;-2 1 -2 1];
+  %T=[6 2 7 2;2 7 1 1;7 1 9 0;2 1 0 10];
 
-  W=[12 -2 6 -2;-2 5 2 1;6 2 9 -2;-2 1 -2 1];
-  T=[6 2 7 2;2 7 1 1;7 1 9 0;2 1 0 10];
-
-  p=[9 -7 -5 7].';
-  q=[12 -4 17 -2].';
+  %p=[9 -7 -5 7].';
+  %q=[12 -4 17 -2].';
 
   M=[W -T;T W];
   d=[p;q];
@@ -15,18 +13,31 @@ function pregunta4()
   n=length(M);
 
 % ----- Eliminación Gaussiana -----
-  display ("Eliminación Gaussiana");
+  printf("    Método #5 = Eliminación Gaussiana\n");
+
+  % Se mide el tiempo de ejecución
+  tic;
 
   z=elim_gauss(M,d);
 
   [u, v] = list_div(z);
 
-  x = u + v.*i
+  x = u + v.*i;
 
-  error = norm(M*z-d)
+  error = norm(M*z-d);
+
+  % Se detiene la medición del tiempo
+  tiempo = toc;
+
+  printf("    Error = %d\n", error);
+  printf("    Tiempo de ejecucion = %d", tiempo);
+  printf(" segundos\n");
 
 % ----- Factorización QR -----
-  display ("\nFactorización QR");
+  printf("    Método #6 = Factorización QR\n");
+
+  % Se mide el tiempo de ejecución
+  tic;
 
   [Q,R] = metodoQR(M);
 
@@ -39,9 +50,16 @@ function pregunta4()
 
   [u, v] = list_div(z);
 
-  x = u + v.*i
+  x = u + v.*i;
 
-  error = norm(M*z-d)
+  error = norm(M*z-d);
+
+  % Se detiene la medición del tiempo
+  tiempo = toc;
+
+  printf("    Error = %d\n", error);
+  printf("    Tiempo de ejecucion = %d", tiempo);
+  printf(" segundos\n");
 end
 
 %Esta función divide una lista a la mitad y retorna el resultado de las dos mitades.

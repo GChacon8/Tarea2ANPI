@@ -15,6 +15,7 @@ function pregunta5_E2
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
     % #4
+    pregunta4(W, T, p, q);
 
     m = 32; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
@@ -28,6 +29,7 @@ function pregunta5_E2
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
     % #4
+    pregunta4(W, T, p, q);
 
     m = 64; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
@@ -41,6 +43,7 @@ function pregunta5_E2
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
     % #4
+    pregunta4(W, T, p, q);
 
     m = 128; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
@@ -54,6 +57,7 @@ function pregunta5_E2
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
     % #4
+    pregunta4(W, T, p, q);
 
     m = 256; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
@@ -67,6 +71,7 @@ function pregunta5_E2
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
     % #4
+    pregunta4(W, T, p, q);
 endfunction
 
 function [W,T] = matrizWT (m)
