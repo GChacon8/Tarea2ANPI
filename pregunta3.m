@@ -1,6 +1,6 @@
 % parte 3 de la tarea 2
 % Define las matrices y vectores
-clear; clc;
+%clear; clc;
 % Define matrices W, T, p, q, iterMax, and tol
 
 %W = [12, -2, 6, -2; -2, 5, 2, 1; 6, 2, 9, -2; -2, 1, -2, 1];
