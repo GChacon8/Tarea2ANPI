@@ -12,7 +12,7 @@ function pregunta5_E1
 
     printf("Caso #1: m=16\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2 (W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     pregunta3 (W, T, p, q, iterMax, tol)
@@ -25,7 +25,7 @@ function pregunta5_E1
 
     printf("Caso #2: m=32\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2 (W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
@@ -38,7 +38,7 @@ function pregunta5_E1
 
     printf("Caso #3: m=64\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2 (W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
@@ -51,7 +51,7 @@ function pregunta5_E1
 
     printf("Caso #4: m=128\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2(W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
@@ -64,7 +64,7 @@ function pregunta5_E1
 
     printf("Caso #5: m=256\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2(W, T, p, q, x, 0.65, 0.01, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)

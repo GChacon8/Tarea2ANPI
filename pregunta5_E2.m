@@ -1,6 +1,6 @@
 function pregunta5_E2
     % Constantes Iniciales
-    tol = 10 ^ -6; 
+    tol = 10 ^ -6;
     iterMax = 5000;
 
     m = 16; % Colocar aquí el tamaño de matriz deseado
@@ -10,20 +10,20 @@ function pregunta5_E2
 
         printf("Caso #1: m=16\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2 (W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
     % #4
-    
+
     m = 32; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
-    [W,T] = matrizWT(m); 
+    [W,T] = matrizWT(m);
     [p,q] = matrizB(m);
 
     printf("Caso #2: m=32\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2 (W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
@@ -31,12 +31,12 @@ function pregunta5_E2
 
     m = 64; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
-    [W,T] = matrizWT(m); 
+    [W,T] = matrizWT(m);
     [p,q] = matrizB(m);
 
     printf("Caso #3: m=64\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2 (W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
@@ -44,12 +44,12 @@ function pregunta5_E2
 
     m = 128; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
-    [W,T] = matrizWT(m); 
+    [W,T] = matrizWT(m);
     [p,q] = matrizB(m);
 
     printf("Caso #4: m=128\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2(W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
@@ -57,12 +57,12 @@ function pregunta5_E2
 
     m = 256; % Colocar aquí el tamaño de matriz deseado
     x = zeros(m ^ 2, 1); % Generar valor inicial
-    [W,T] = matrizWT(m); 
+    [W,T] = matrizWT(m);
     [p,q] = matrizB(m);
 
     printf("Caso #5: m=256\n");
     % Colocar aquí los métodos
-    % #1
+    pregunta1(W, T, p, q, x, tol, iterMax);
     pregunta2(W, T, p, q, x, 5, 0.0005, tol, iterMax);
     % #3
     pregunta3(W, T, p, q, iterMax, tol)
