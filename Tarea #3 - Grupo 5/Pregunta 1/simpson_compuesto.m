@@ -1,4 +1,4 @@
-function simpson_compuesto(f,a,b,n)
+function I=simpson_compuesto(f,a,b,n)
 
   h = (b-a)/(n-1);
   xSoporte = a:h:b;
