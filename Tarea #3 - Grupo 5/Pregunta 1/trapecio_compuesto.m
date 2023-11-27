@@ -2,9 +2,9 @@
 %la sintaxis de la función es: I=trapecio_compuesto(f,a,b,N)
 %parametros de entrada:
 %       f:funcion de entrada a integrar
-%       a:limite de integracion inferiorto
-%       b:limite de integración superiorto
-%       N:numero de iteraciones deseadas
+%       a:limite de integracion inferior
+%       b:limite de integración superior
+%       N:numero de puntos en los que se divide el interavalo [a,b]
 % parametros de salida:
 %     I=aproximacion del valor de la integral definida
 function I = trapecio_compuesto(f, a, b, N)
