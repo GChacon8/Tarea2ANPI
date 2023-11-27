@@ -1,6 +1,9 @@
 clc;clear;
 function ejecutable()
   f = '(log(asin(x)))/(log(x))';
+  display("Para Trapecio la aproximacion es:");
+  I=trapecio(f,0.1,0.9);
+  I
   display("Para Trapecio Compuesto la aproximacion es:");
   I=trapecio_compuesto(f,0.1,0.9,20);
   I
