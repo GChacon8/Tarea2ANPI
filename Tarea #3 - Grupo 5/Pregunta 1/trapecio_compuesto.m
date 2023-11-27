@@ -7,12 +7,13 @@
 %       N:numero de iteraciones deseadas
 % parametros de salida:
 %     I=aproximacion del valor de la integral definida
-function I = trapecio_compuesto(f, a, b, m)
-  h = (b - a) / (m - 1);
+function I = trapecio_compuesto(f, a, b, N)
+  h = (b - a) / (N - 1);
   xSoporte = a:h:b;
   I = 0;
-  for i = 1:m-1
+  for i = 1:N-1
     I = I + trapecio(f, xSoporte(i), xSoporte(i+1));
   end
 end
+
 

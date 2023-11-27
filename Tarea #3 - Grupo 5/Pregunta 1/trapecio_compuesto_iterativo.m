@@ -16,7 +16,7 @@ function I=trapecio_compuesto_iterativo(f,a,b,tol,iterMax)
   for k=iterMin:iterMax
     Inew=trapecio_compuesto(f,a,b,k);
     if k>iterMin
-      er=abs(Inew-I)
+      er=abs(Inew-I);
       if er<tol
         I=Inew;
         break;
