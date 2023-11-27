@@ -7,6 +7,12 @@ function ejecutable()
   display("Para Trapecio Compuesto iterativo la aproximacion es:");
   I=trapecio_compuesto_iterativo(f,0.1,0.9,1e-6,2500);
   I
+  display("Para Cuadratura Gaussiana Compuesta la aproximacion es:");
+  I=gaussiana_compuesta(f,0.1,0.9,20);
+  I
+  display("Para Cuadratura Gaussiana Compuesta iterativa la aproximacion es:");
+  I=gaussiana_compuesta_iterativa(f,0.1,0.9,1e-6,2500);
+  I
   display("Para simpson la aproximacion es:");
   I=simpson(f,0.1,0.9);
   I
