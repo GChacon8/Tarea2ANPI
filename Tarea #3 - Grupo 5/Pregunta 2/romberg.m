@@ -14,9 +14,9 @@ function res = romberg(func, a, b, n)
     R = zeros(n, n);
 
     % Construimos la primera fila con las aproximaciones usando
-    % regla del tracio para 1, 2, 4, ..., (2 ^ n) intervalos
+    % regla del trapecio para 1, 2, 4, ..., (2 ^ (n-1)) intervalos
     for i = 1: n
-        R(i, 1) = trapecio(func, a, b, (2 ^ i));
+        R(i, 1) = trapecio(func, a, b, (2 ^ (i-1)));
     endfor
 
     % Empezamos a extrapolar utilizando los resultados 
@@ -26,10 +26,9 @@ function res = romberg(func, a, b, n)
         R(k, j) = R(k, j-1) + (R(k, j - 1) - R(k-1, j - 1)) / (4 ^ (j - 1) - 1);
         endfor
     endfor
-
-    R
+    
     % El resultado final está en la esquina inferior derecha de la matriz
-    resultado = R(n, n);
+    res = R(n, n);
 endfunction
 
 function resultado = trapecio(func, a, b, n)
@@ -42,7 +41,11 @@ function resultado = trapecio(func, a, b, n)
     x = a:h:b;        % Puntos de evaluación
     
     % Calcular la suma de los extremos y el doble de la suma de los valores internos
-    suma = func(a) + func(b) + 2 * sum(func(x(2:end-1)));
+    suma = 0;
+    for i=2 : length(x) - 1
+        suma = suma + func(x(i));
+    endfor
+    suma = func(a) + func(b) + 2 * suma;
     
     % Calcular el resultado final utilizando el método del trapecio
     resultado = (h / 2) * suma;
