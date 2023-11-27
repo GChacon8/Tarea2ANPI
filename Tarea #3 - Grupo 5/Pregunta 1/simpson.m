@@ -8,9 +8,7 @@ function I=simpson(f,a,b)
   %
   % Parámetros de salida:
   %     I: Aproximación del valor de la integral definida.
-  syms x
-  f1=sym(f);
-  fn=matlabFunction(f1);
+  fn = str2func(['@(x)' f]);
   I=((b-a)/6)*(fn(a)+4*fn((a+b)/2)+fn(b));
 endfunction
 
